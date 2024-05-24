@@ -10,7 +10,7 @@ services:
   bidding:
     build:
       context: .
-      dockerfile: Dockerfile.bidding
+      dockerfile: Dockerfile.bid
     ports:
       - "8081:8081"
     restart: always
@@ -18,7 +18,7 @@ services:
   bidding-2:
     build:
       context: .
-      dockerfile: Dockerfile.bidding
+      dockerfile: Dockerfile.bid
     ports:
       - "8082:8081"
     restart: always
@@ -26,7 +26,7 @@ services:
   bidding-3:
     build:
       context: .
-      dockerfile: Dockerfile.bidding
+      dockerfile: Dockerfile.bid
     ports:
       - "8083:8081"
     restart: always

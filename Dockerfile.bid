@@ -7,7 +7,7 @@ WORKDIR /app
 # Copy only the necessary Go source code into the container
 COPY ./bid .
 
-COPY go.mod go.sum ./
+COPY go.mod ./
 
 # Build the Go binary
 RUN go build -o bid-service .
