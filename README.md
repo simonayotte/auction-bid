@@ -2,7 +2,7 @@
 
 ## Descripition
 
-This project is an auction-bid microservices system written in Go. The auction service gets all the bid from the bidding service and return back the best bid.
+This project is an auction-bid microservices system written in Go. The auction service gets all the bids from the bidding service and return back the bid with the best price.
 
 ## Installation
 
@@ -11,7 +11,7 @@ This project is an auction-bid microservices system written in Go. The auction s
 ## Usage
 
 Run the following command to make a request to the auction server:
-`curl http://localhost:8000/auction`
+`curl http://localhost:8000/`
 
 ## Test
 
