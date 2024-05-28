@@ -1,15 +1,34 @@
 package main
 
 import (
-	"io"
-	"net/http"
+	"github.com/google/uuid"
 )
 
-func helloHandler(w http.ResponseWriter, r *http.Request) {
-	io.WriteString(w, "Hello World!")
+type AdId uuid.UUID
+
+// Mapping bidding service -> bid
+type AuctionService struct {
+	ActiveAdId AdId
+	Bids       map[string]int
 }
 
-func main() {
-	http.HandleFunc("/hello", helloHandler)
-	http.ListenAndServe(":8080", nil)
+func NewAuctionService() *AuctionService {
+	bids := make(map[string]int)
+	id, _ := uuid.NewUUID()
+	return &AuctionService{ActiveAdId: AdId(id), Bids: bids}
+}
+
+func (as *AuctionService) GenerateNewAdId() uuid.UUID {
+	id, _ := uuid.NewUUID()
+	return id
+}
+
+func (as *AuctionService) GetMaxBid() int {
+	var max int
+	for _, v := range as.Bids {
+		if v > max {
+			max = v
+		}
+	}
+	return max
 }

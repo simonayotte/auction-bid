@@ -7,7 +7,7 @@ WORKDIR /app
 # Copy only the necessary Go source code into the container
 COPY ./auction .
 
-COPY go.mod ./
+COPY go.mod go.sum ./
 
 # Build the Go binary
 RUN go build -o auction-service .
